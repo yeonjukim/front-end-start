@@ -7,52 +7,49 @@ var todayPhoto = [
         ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100539","img":"http://icon.daumcdn.net/w/c/12/05/81728404408992839.jpeg","title":"이승철 아내와 딸 사진 공개 &quot;사주에. .&quot;","id":"20120516093918544"}
         ,{"url":"http://media.daum.net/photo/3899","img":"http://icon.daumcdn.net/w/c/12/05/81728227037306839.jpeg","title":"생후 6개월에 프랑스로 입양됐던 아이가..","id":"20120516030614331"}
         ,{"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg","title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}
-    ];
+];
 
-    var wrap = document.getElementById('wrap');
+var wrap = document.getElementById('wrap');
 
-    var tmp = '';
-    for(var i=0; i<3; i++){
+var tmp = '';
+for(var i=0; i<3; i++){
+    tmp += '<img src="'+todayPhoto[i].img+'"> ';
+}
 
-        tmp += '<img src="'+todayPhoto[i].img+'"> ';
-    }
-
+var tmp2 = '';
+for(var i=3; i<6; i++){
+    tmp2 += '<img src="'+todayPhoto[i].img+'"> ';
+}
+    
+var  tmp3= '';
+for(var i=6; i<8; i++){
+    tmp3 += '<img src="'+todayPhoto[i].img+'"> ';
+}
 var pageNumber = 0;
 
-
-    var tmp2 = '';
-    for(var i=3; i<6; i++){
-
-        tmp2 += '<img src="'+todayPhoto[i].img+'"> ';
-    }
-    
-    var  tmp3= '';
-    for(var i=6; i<8; i++){
-
-        tmp3 += '<img src="'+todayPhoto[i].img+'"> ';
-    }
 var arr = new Array();
 arr[0]= tmp;
 arr[1]= tmp2;
 arr[2]= tmp3;
     
-    wrap.innerHTML = arr[pageNumber];
-var left_button = document.getElementById('left_button');
+wrap.innerHTML = arr[pageNumber];
 
-var right_button = document.getElementById('right_button');
+var leftButton = document.getElementById('leftButton');
 
-left_button.addEventListener("click",function (event) {
-	if(pageNumber == 0){pageNumber=2;}
+var rightButton = document.getElementById('rightButton');
+
+leftButton.addEventListener("click",function (event) {
+	if(pageNumber == 0){pageNumber = 2;}
 	else {
 		pageNumber--;
-		
-	}wrap.innerHTML = arr[pageNumber];
-});
-right_button.addEventListener("click",function (event) {
-	if(pageNumber == 2){pageNumber = 0}
-	else{
-		pageNumber++;
-		
-	}wrap.innerHTML = arr[pageNumber];
+	}
+	wrap.innerHTML = arr[pageNumber];
 });
 
+rightButton.addEventListener("click",function (event) {
+	if(pageNumber == 2){pageNumber = 0;}
+	else{
+		pageNumber++;
+	}
+	wrap.innerHTML = arr[pageNumber];
+});

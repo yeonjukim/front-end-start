@@ -17,8 +17,8 @@ var color ;
 board.addEventListener("mousedown",function(event) {
 	color = event.target.className;
 	event.target.className = "red"
-})        
+});       
 
 board.addEventListener("mouseup", function(event){
 	event.target.className = color;
-})
+});
